@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import Navbar from './components/Navbar';
 import Dashboard from './pages/Dashboard';
+import Logon from './pages/Logon';
 
 import reportWebVitals from './reportWebVitals';
 import enTranslations from '@shopify/polaris/locales/en.json';
@@ -13,12 +14,14 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <AppProvider i18n={enTranslations}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />}></Route>
-          <Route path="/dashboard" element={<Dashboard />}></Route>
-        </Routes>
-      </BrowserRouter>
+      <Navbar>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Logon />}></Route>
+            <Route path="/dashboard" element={<Dashboard />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </Navbar>
     </AppProvider>
   </React.StrictMode>
 );
